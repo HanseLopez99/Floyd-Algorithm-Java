@@ -7,16 +7,16 @@
 
 import java.util.ArrayList;
 
-public class Graph {
+public class GraphModel {
     private String origin;
     private String destination;
     private int distance;
 
-    public Graph(){
+    public GraphModel(){
 
     }
 
-    public Graph(String origin, String destination, int distance){
+    public GraphModel(String origin, String destination, int distance){
         this.origin = origin;
         this.destination = destination;
         this.distance = distance;
@@ -46,9 +46,9 @@ public class Graph {
         return this.distance;
     }
    
-    public ArrayList<String> generateGraphArray(ArrayList<Graph> graph){
+    public ArrayList<String> generateGraphArray(ArrayList<GraphModel> graph){
         ArrayList<String> graphArray = new ArrayList<>();
-        for(Graph g: graph){
+        for(GraphModel g: graph){
             if(!graphArray.contains(g.getOrigin())){
                 graphArray.add(g.getOrigin());
             }
