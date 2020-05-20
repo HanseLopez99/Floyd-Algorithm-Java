@@ -2,7 +2,7 @@
 * Hoja de trabajo 10
 *Seccion 30
 *Autor: Hansel Lopez
-*Clase Graph.java
+*Clase GraphModel.java
 *Fecha: 19/05/2020*/
 
 import java.util.ArrayList;
