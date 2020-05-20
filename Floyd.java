@@ -103,7 +103,7 @@ public class Floyd {
         }
     }
     
-    public long[][] createMatrix(ArrayList<String> newGraph, ArrayList<Graph> cities){
+    public long[][] createMatrix(ArrayList<String> newGraph, ArrayList<GraphModel> model){
         long matriz[][] = new long[newGraph.size()][newGraph.size()];
         
         for (int i = 0; i < newGraph.size(); i++) {
@@ -114,7 +114,7 @@ public class Floyd {
                     String o = newGraph.get(i);
                     String d = newGraph.get(j);
                     int distance = 999999999;
-                    for(Graph c: cities){
+                    for(GraphModel c: model){
                         if(o.equals(c.getOrigin()) && d.equals(c.getDestination())){
                             distance = c.getDistance();
                         }
@@ -178,8 +178,8 @@ public class Floyd {
         return center;
     }
     
-    public ArrayList<Graph> readTXTFile() throws FileNotFoundException, IOException{
-        ArrayList<Graph> graph = new ArrayList<>();
+    public ArrayList<GraphModel> readTXTFile() throws FileNotFoundException, IOException{
+        ArrayList<GraphModel> graph = new ArrayList<>();
         File txtFile = new File ("guategrafo.txt");
         FileReader reader = new FileReader(txtFile);
         BufferedReader bfReader = new BufferedReader(reader);
@@ -199,7 +199,7 @@ public class Floyd {
             row = row.substring(row.indexOf(" ") + 1, row.length());     
             dis = Integer.parseInt(row.substring(0, row.length()));   
             cont++;
-            graph.add(new Graph(org, des, dis));
+            graph.add(new GraphModel(org, des, dis));
             reader.close();
             bfReader.close();
         }
