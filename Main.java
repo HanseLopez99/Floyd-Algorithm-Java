@@ -1,5 +1,5 @@
 /*Algoritmos y Estructura de Datos
-* Hoja de trabajo 10
+*Hoja de trabajo 10
 *Seccion 30
 *Autor: Hansel Lopez
 *Clase Main.java
