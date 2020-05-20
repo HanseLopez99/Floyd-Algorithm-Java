@@ -88,7 +88,7 @@ public class Controller {
                     citiesArrayList = graph.generateGraphArray(graphArrayList);
                     matrix = floyd.createMatrix(citiesArrayList, graphArrayList);
 
-                    //Se busca la existencia de una ruta por medio del metodo check
+                    //Se busca la existencia de una ruta por medio del metodo check si no existe no mostrara nada
                     if(floyd.check(citiesArrayList,orgCity,desCity)){    
                         System.out.println(floyd.FloydAlgorithm(matrix, citiesArrayList, orgCity, desCity));
                         System.out.println("");
@@ -101,8 +101,14 @@ public class Controller {
                         enter = sc.next();
                     }
                     break;
-                case 2:
-                    //Opcion2
+                case 2: //Opcion2
+                    citiesArrayList.clear();
+                    citiesArrayList = graph.generateGraphArray(graphArrayList);
+                    matrix = floyd.createMatrix(citiesArrayList, graphArrayList); //Se genera matriz
+                    floyd.graphCenter(matrix); //Se usa el metodo para mostrar el centro del grafo
+                    System.out.println(" La ciudad que queda en el centro del grafo es: (" + citiesArrayList.get(floyd.graphCenter(matrix)) + ") \n");
+                    System.out.println("Presione (0) para continuar...");
+                    enter = sc.next();
                 break;
                 case 3:
                     //Opcion3
