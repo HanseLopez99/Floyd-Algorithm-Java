@@ -35,8 +35,11 @@ public class Controller {
         Floyd floyd = new Floyd();
 
         //Se declara variables usadas en el menu
+        ArrayList<String> citiesArrayList = new ArrayList<>();
+        long matrix[][]; //matriz 
         Scanner sc = new Scanner(System.in);
         int opcion;
+        String enter;
 
         //Se lee el archivo de texto y se guarda en el arraylist graphArrayList
         while (scanner.hasNextLine()) {
@@ -51,7 +54,7 @@ public class Controller {
             cont++;
             
             //Agregando a ArrayList y cerrando BufferedReader
-            graphArrayList.add(new GraphModel(origin, destination, distancia)); 
+            graphArrayList.add(new GraphModel(origin, destination, distancia));
             reader.close();
             bfReader.close();
         }
@@ -72,9 +75,32 @@ public class Controller {
             opcion = sc.nextInt();
 
             switch (opcion) {
-                case 1: 
-                    //Opcion1
-                break;
+                case 1: //Opcion1
+                    //Se solicita parametros al usuario
+                    System.out.println("\t -Ingresar ciudad de origen:");
+                    String orgCity = sc.nextLine();
+                    orgCity = sc.nextLine();
+                    System.out.println("\t -Ingrese ciudad de destino:");
+                    String desCity = sc.nextLine();
+
+                    //Se crea la matriz
+                    citiesArrayList.clear();
+                    citiesArrayList = graph.generateGraphArray(graphArrayList);
+                    matrix = floyd.createMatrix(citiesArrayList, graphArrayList);
+
+                    //Se busca la existencia de una ruta por medio del metodo check
+                    if(floyd.check(citiesArrayList,orgCity,desCity)){    
+                        System.out.println(floyd.FloydAlgorithm(matrix, citiesArrayList, orgCity, desCity));
+                        System.out.println("");
+                        System.out.println("Presione (0) para continuar... ");
+                        enter = sc.next();
+                        
+                    }else{
+                        System.out.println("Dato no existente \n");
+                        System.out.println("Presione (0) para continuar...");
+                        enter = sc.next();
+                    }
+                    break;
                 case 2:
                     //Opcion2
                 break;
