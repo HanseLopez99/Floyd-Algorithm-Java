@@ -45,8 +45,8 @@ public class Graph {
     public int getDistance(){
         return this.distance;
     }
-
-    public ArrayList<String> crearLista(ArrayList<Graph> graph){
+   
+    public ArrayList<String> generateGraphArray(ArrayList<Graph> graph){
         ArrayList<String> graphArray = new ArrayList<>();
         for(Graph g: graph){
             if(!graphArray.contains(g.getOrigin())){
